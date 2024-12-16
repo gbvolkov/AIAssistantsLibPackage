@@ -1,7 +1,7 @@
 import os
 
 # Add the parent directory to sys.path
-import config
+import AIAssistantsLib.config as config
 from abc import ABC, abstractmethod
 from typing import List, Any, Optional, Dict, Tuple
 

@@ -1,4 +1,4 @@
-import config
+import AIAssistantsLib.config as config
 from rag_utils.rag_utils import load_vectorstore
 
 import torch

@@ -7,7 +7,7 @@ if __name__ == '__main__':
     import sys
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import config
+import AIAssistantsLib.config as config
 from abc import ABC, abstractmethod
 from typing import List, Any, Optional, Dict, Tuple
 

@@ -6,7 +6,7 @@ if __name__ == '__main__':
     import sys
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import config
+import AIAssistantsLib.config as config
 
 from langchain_openai import ChatOpenAI
 from langchain_mistralai import ChatMistralAI
