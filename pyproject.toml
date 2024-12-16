@@ -1,7 +1,3 @@
-[build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "AIAssistantsLib"
 version = "0.1.0"
@@ -23,18 +19,21 @@ requires-python = ">=3.11"
 "Source" = "https://github.com/gbvolkov/AIAssistantsLibPackage"
 "Tracker" = "https://github.com/gbvolkov/AIAssistantsLibPackage/issues"
 
-[project.dependencies]
-python-dotenv = "*"
-accelerate = ">=0.26.0"
-transformers = "*"
-torch = "*"
-langchain_openai = "*"
-langchain_gigachat = "*"
-langchain_community = "*"
-langchainhub = "*"
-langchain-huggingface = "*"
-langchain_google_genai = "*"
-langchain_mistralai = "*"
-yandexcloud = "*"
-faiss-cpu = "*"
-nltk = "*"
+# Use an array of strings instead of a table for dependencies.
+[project]
+dependencies = [
+    "python-dotenv",
+    "accelerate>=0.26.0",
+    "transformers",
+    "torch",
+    "langchain_openai",
+    "langchain_gigachat",
+    "langchain_community",
+    "langchainhub",
+    "langchain-huggingface",
+    "langchain_google_genai",
+    "langchain_mistralai",
+    "yandexcloud",
+    "faiss-cpu",
+    "nltk"
+]
