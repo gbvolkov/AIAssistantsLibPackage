@@ -20,8 +20,8 @@ classifiers = [
 requires-python = ">=3.11"
 
 [project.urls]
-"Source" = "https://github.com/yourusername/AIAssistantsLibPackage"
-"Tracker" = "https://github.com/yourusername/AIAssistantsLibPackage/issues"
+"Source" = "https://github.com/gbvolkov/AIAssistantsLibPackage"
+"Tracker" = "https://github.com/gbvolkov/AIAssistantsLibPackage/issues"
 
 [project.dependencies]
 python-dotenv = "*"
