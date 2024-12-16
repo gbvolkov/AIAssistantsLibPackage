@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "AIAssistantsLib"
 version = "0.1.0"
@@ -19,8 +23,6 @@ requires-python = ">=3.11"
 "Source" = "https://github.com/gbvolkov/AIAssistantsLibPackage"
 "Tracker" = "https://github.com/gbvolkov/AIAssistantsLibPackage/issues"
 
-# Use an array of strings instead of a table for dependencies.
-[project]
 dependencies = [
     "python-dotenv",
     "accelerate>=0.26.0",
