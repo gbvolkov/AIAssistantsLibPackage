@@ -1,0 +1,9 @@
+/.venv
+**/.venv
+/.vscode
+**/__pycache__
+/output
+/input
+/data
+/models
+/russian
