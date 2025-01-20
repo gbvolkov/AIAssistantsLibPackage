@@ -26,8 +26,8 @@ from typing import List, Any, Optional, Dict, Tuple
 
 import logging
 
-DISTANCE_TRESHOLD = 0.8
-MAX_RETRIEVALS = 5
+DISTANCE_TRESHOLD = 0.7
+MAX_RETRIEVALS = 20
 
 reranker_model = HuggingFaceCrossEncoder(model_name=config.RERANKING_MODEL)
 RERANKER = CrossEncoderReranker(model=reranker_model, top_n=3)
