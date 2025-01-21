@@ -7,10 +7,10 @@ documents_path = Path.home() / ".env"
 
 load_dotenv(os.path.join(documents_path, 'gv.env'))
 
-LOCAL_MODEL_NAME='/models/llama3.1.8b'
-LOCALGGUF_MODEL_NAME='/models/mistral-large-instruct-2411-Q4_K_M'
-EMBEDDING_MODEL='/models/multilingual-e5-large'
-RERANKING_MODEL='/models/bge-reranker-large'
+LOCAL_MODEL_NAME=os.environ.get('LOCAL_MODEL_NAME') or '/models/llama3.1.8b'
+LOCALGGUF_MODEL_NAME=os.environ.get('LOCALGGUF_MODEL_NAME') or '/models/mistral-large-instruct-2411-Q4_K_M'
+EMBEDDING_MODEL=os.environ.get('EMBEDDING_MODEL') or '/models/multilingual-e5-large'
+RERANKING_MODEL=os.environ.get('RERANKING_MODEL') or '/models/bge-reranker-large'
 
 GIGA_CHAT_USER_ID=os.environ.get('GIGA_CHAT_USER_ID')
 GIGA_CHAT_SECRET = os.environ.get('GIGA_CHAT_SECRET')

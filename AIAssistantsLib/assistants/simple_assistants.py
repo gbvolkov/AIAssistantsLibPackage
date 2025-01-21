@@ -47,8 +47,8 @@ class SimpleAssistant:
 
     def ask_question(self, query: Dict) -> str:
         if self.llm is None:
-            logging.error("RAG chain not initialized")
-            raise ValueError("Model or RAG chain not initialized.")
+            logging.error("Model not initialized")
+            raise ValueError("Model not initialized.")
         try:
             chain = self.system_prompt | self.llm
             result = chain.invoke(query)
