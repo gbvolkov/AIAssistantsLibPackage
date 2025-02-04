@@ -47,7 +47,7 @@ class KBRetrieverManager:
         self.embedding_model = embedding_model or config.EMBEDDING_MODEL
         self.retrievers: Dict[(str, int), Any] = {}  # Maps vector_store_path and max_max_context_length to retriever
         self.vectorstores: Dict[str, Any] = {}  # Maps vector_store_path to vectorstore
-        self.llm = ChatOpenAI(temperature=0, openai_api_key=config.OPENAI_API_KEY, model_name="gpt-4o-mini") #os.getenv("OPENAI_API_KEY)
+        #self.llm = ChatOpenAI(temperature=0, openai_api_key=config.OPENAI_API_KEY, model_name="gpt-4o-mini") #os.getenv("OPENAI_API_KEY)
         logging.info(f"KBRetrieverManager initialized with embedding model: {self.embedding_model}")
 
     def build_retriever(self, vector_store_path, max_context_length, vectorstore, documents):
