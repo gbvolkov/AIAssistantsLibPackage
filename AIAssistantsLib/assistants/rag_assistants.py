@@ -140,6 +140,9 @@ retriever_manager = KBRetrieverManager()
 def get_retriever(kkb_path, max_context_window = -1):
     return retriever_manager.get_retriever(kkb_path, max_context_window)
 
+def reload_vectore_store(kkb_path, max_context_window = -1):
+    return retriever_manager.reload_vector_store(kkb_path, max_context_window)
+
 class KBDocumentPromptTemplate(StringPromptTemplate):
     max_length : int = 0
     def __init__(self, max_length: int, **kwargs: Any):
@@ -171,7 +174,8 @@ class RAGAssistant:
         self.system_prompt = system_prompt
         self.max_context_window = max_context_window
         self.output_parser = output_parser
-        self.retriever = get_retriever(kkb_path, self.max_context_window)
+        self.kkb_path = kkb_path
+        self.retriever = get_retriever(self.kkb_path, self.max_context_window)
         logging.info(f"Dataretrieved built: {kkb_path}")
         self.llm = self.initialize()
         self.set_system_prompt(self.system_prompt)
@@ -180,6 +184,10 @@ class RAGAssistant:
     def truncate_context(self, context, question, max_tokens):
         # Default implementation: no truncation
         return context
+
+    def reload_vectore_store(self):
+        reload_vectore_store(self.kkb_path, self.max_context_window)
+        return 
 
     def set_system_prompt(self, system_prompt):
         self.system_prompt = system_prompt
