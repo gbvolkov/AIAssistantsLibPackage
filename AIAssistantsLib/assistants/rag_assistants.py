@@ -186,7 +186,8 @@ class RAGAssistant:
         return context
 
     def reload_vectore_store(self):
-        reload_vectore_store(self.kkb_path, self.max_context_window)
+        self.retriever = reload_vectore_store(self.kkb_path, self.max_context_window)
+        self.set_system_prompt(self.system_prompt)
         return 
 
     def set_system_prompt(self, system_prompt):
