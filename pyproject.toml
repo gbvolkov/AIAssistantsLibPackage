@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "AIAssistantsLib"
-version = "0.1.8"
+version = "0.1.9"
 description = "A utility library for AI assistants."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -33,10 +33,12 @@ dependencies = [
     "langchain_google_genai",
     "langchain_mistralai",
     "yandexcloud",
-    "faiss-cpu; platform_system != 'Linux' or 'CUDA_HOME' not in environ",
-    "faiss-gpu-cu12; platform_system == 'Linux' and 'CUDA_HOME' in environ",
+    "faiss-cpu",
     "nltk"
 ]
+
+[project.optional-dependencies]
+gpu = ["faiss-gpu-cu12"]
 
 # Define URLs as a separate table under [project]
 [project.urls]
