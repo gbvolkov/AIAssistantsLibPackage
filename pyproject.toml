@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "AIAssistantsLib"
-version = "0.1.10"
+version = "0.1.11"
 description = "A utility library for AI assistants."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -17,7 +17,7 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent"
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.12.6"
 
 # Define dependencies as a list under [project]
 dependencies = [
@@ -36,9 +36,6 @@ dependencies = [
     "faiss-cpu",
     "nltk"
 ]
-
-[project.extras]
-gpu = ["faiss-gpu-cu12"]
 
 # Define URLs as a separate table under [project]
 [project.urls]
