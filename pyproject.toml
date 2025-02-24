@@ -37,7 +37,7 @@ dependencies = [
     "nltk"
 ]
 
-[project.optional-dependencies]
+[project.extras]
 gpu = ["faiss-gpu-cu12"]
 
 # Define URLs as a separate table under [project]
