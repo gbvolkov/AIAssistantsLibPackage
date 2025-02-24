@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "AIAssistantsLib"
-version = "0.1.14"
+version = "0.1.15"
 description = "A utility library for AI assistants."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -37,10 +37,9 @@ dependencies = [
 ]
 
 # Define optional dependencies for GPU/CPU setups
-optional-dependencies = {
-    "gpu": ["faiss-gpu"],
-    "cpu": ["faiss-cpu"]
-}
+[project.optional-dependencies]
+gpu = ["faiss-gpu"]
+cpu = ["faiss-cpu"]
 
 # Define URLs as a separate table under [project]
 [project.urls]
