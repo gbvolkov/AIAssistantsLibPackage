@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "AIAssistantsLib"
-version = "0.1.11"
+version = "0.1.12"
 description = "A utility library for AI assistants."
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -33,7 +33,6 @@ dependencies = [
     "langchain_google_genai",
     "langchain_mistralai",
     "yandexcloud",
-    "faiss-cpu",
     "nltk"
 ]
 
