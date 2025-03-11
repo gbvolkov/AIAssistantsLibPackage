@@ -1,4 +1,5 @@
 import AIAssistantsLib.config as config
+#from AIAssistantsLib import config
 from .rag_utils.rag_utils import load_vectorstore
 
 import torch
@@ -150,11 +151,11 @@ class KBDocumentPromptTemplate(StringPromptTemplate):
         self.max_length = max_length
 
     def format(self, **kwargs: Any) -> str:
-        page_conetnt = kwargs.pop("page_content")
+        page_content = kwargs.pop("page_content")
         problem_number = kwargs.pop("problem_number")
         chunk_size = kwargs.pop("actual_chunk_size")
         #here additional data could be retrieved based on problem_number
-        result = page_conetnt
+        result = page_content
         if self.max_length > 0:
             result = result[:self.max_length]
         return result
@@ -215,6 +216,7 @@ class RAGAssistant:
         return ChatPromptTemplate.from_messages(
             [
                 ("system", system_prompt),
+                ("human", "Context: {context}"),
                 ("human", "{input}"),
             ]
         )
@@ -318,7 +320,18 @@ class RAGAssistantLocal(RAGAssistant):
         pipe = pipeline("text-generation", model=model, tokenizer=self.tokenizer, generation_config=generation_config,)
         llm = HuggingFacePipeline(pipeline=pipe, model_kwargs={"temperature": 0.4})
         return llm
-    
+
+    def get_prompt(self, system_prompt):
+        #return ChatPromptTemplate.from_template(system_prompt)
+        return ChatPromptTemplate.from_messages(
+            [
+                ("system", system_prompt),
+                ("human", "Context: {context}"),
+                ("human", "{input}"),
+                ("ai", ""),
+            ]
+        )
+
     def set_system_prompt(self, system_prompt):
         self.system_prompt = system_prompt
         self.prompt = self.get_prompt(self.system_prompt)
@@ -354,8 +367,6 @@ class RAGAssistantLocal(RAGAssistant):
             raise ValueError("Model or RAG chain not initialized.")
         try:
             result = self.rag_chain.invoke({"input": query})
-            with open("./debug/debug_local.txt", "w", encoding="utf-8") as f:
-                f.write(result['answer'])
             return result
         except AttributeError as e:
             logging.error(f"AttributeError in ask_question: {str(e)}")
@@ -436,7 +447,8 @@ if __name__ == '__main__':
         assistants = []
         vectorstore = load_vectorstore(vectorestore_path, config.EMBEDDING_MODEL)
         retriever = get_retriever(vectorestore_path)
-        assistants.append(RAGAssistantGPT(system_prompt, vectorestore_path, output_parser=StrOutputParser))
+        #assistants.append(RAGAssistantGPT(system_prompt, vectorestore_path, output_parser=StrOutputParser))
+        assistants.append(RAGAssistantLocal(system_prompt, vectorestore_path, output_parser=StrOutputParser, model_name='HuggingFaceTB/SmolLM2-1.7B-Instruct'))
 
         query = ''
 
