@@ -216,8 +216,7 @@ class RAGAssistant:
         return ChatPromptTemplate.from_messages(
             [
                 ("system", system_prompt),
-                ("human", "Context: {context}"),
-                ("human", "{input}"),
+                ("human", "User request: \n{input}\n\nContext: \n{context}"),
             ]
         )
     @abstractmethod
