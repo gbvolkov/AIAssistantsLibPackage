@@ -74,7 +74,7 @@ class JSONAssistant:
 
 
 class JSONAssistantGPT(JSONAssistant):
-    def __init__(self, schema, model_name='gpt-4o-mini', temperature=0.1):
+    def __init__(self, schema, model_name='gpt-4.1-mini', temperature=0.1):
         super().__init__(schema, model_name=model_name, temperature=temperature)
     def initialize(self):
         return ChatOpenAI(

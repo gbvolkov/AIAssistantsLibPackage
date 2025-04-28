@@ -70,7 +70,7 @@ class ChatAssistant:
 
 
 class ChatAssistantGPT(ChatAssistant):
-    def __init__(self, system_prompt, model_name="gpt-4o-mini", temperature=0.4):
+    def __init__(self, system_prompt, model_name="gpt-4.1-mini", temperature=0.4):
         super().__init__(system_prompt, model_name=model_name, temperature=temperature)
     def initialize(self):
         return ChatOpenAI(

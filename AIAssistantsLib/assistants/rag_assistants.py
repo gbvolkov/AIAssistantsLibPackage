@@ -241,7 +241,7 @@ class RAGAssistant:
 
 
 class RAGAssistantGPT(RAGAssistant):
-    def __init__(self, system_prompt, kkb_path, output_parser = BaseOutputParser, model_name="gpt-4o-mini", temperature=0.4):
+    def __init__(self, system_prompt, kkb_path, output_parser = BaseOutputParser, model_name="gpt-4.1-mini", temperature=0.4):
         super().__init__(system_prompt, kkb_path, output_parser = output_parser, model_name=model_name, temperature=temperature)
     def initialize(self):
         return ChatOpenAI(
